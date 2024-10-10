@@ -10,8 +10,75 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
+    background-color: black;
 }
 
 footer {
     margin-top: auto;
+    background-color: #202127;
 }
+
+header{
+    background-color: #202127;
+}
+
+
+
+/* Базовая стилизация для элементов меню */
+.nav_panel {
+    position: relative;
+    z-index: 1; /* Для корректного наложения фона */
+    transition: all 0.3s ease; /* Плавные переходы */
+}
+
+/* Псевдоэлемент для фона */
+.nav_panel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #157347; /* Цвет фона при наведении */
+    z-index: -1; /* Чтобы фон был позади текста */
+    transition: all 0.3s ease;
+    transform: scaleY(0); /* Фон скрыт по умолчанию */
+    transform-origin: bottom; /* Точка начала анимации */
+}
+
+/* Эффект при наведении */
+.nav_panel:hover {
+    transform: translateY(-3px); /* Элемент поднимается при наведении */
+}
+
+/* Фон заполняется при наведении */
+.nav_panel:hover::before {
+    transform: scaleY(1); /* Фон отображается полностью */
+}
+
+/* Настройка текстового цвета на всякий случай */
+.nav_panel:hover {
+    color: #fff;
+}
+
+.content{
+    background-color: #2c2d32;
+    height: 490px;
+}
+
+.mainContent{
+    background-color: #202127;
+}
+
+.inputPanel{
+    border-color: #157347;
+}
+
+.card{
+    border: none;
+}
+
+.login_back{
+    background-image: url("images/f1b6829d-d5f9-4fcb-a67b-d854ec6706ac.jpg");
+}
+
