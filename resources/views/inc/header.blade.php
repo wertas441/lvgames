@@ -6,7 +6,7 @@
     </a>
 
     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 gap-2">
-        <li><a href="/" class="nav-link px-3 text-white nav_panel">Главная</a></li>
+        <li><a href="{{route('welcome')}}" class="nav-link px-3 text-white nav_panel">Главная</a></li>
         <li><a href="{{route('catalog-page')}}" class="nav-link px-2 text-white nav_panel" >Каталог</a></li>
         <li><a href="{{route('reviews-page')}}" class="nav-link px-2 text-white nav_panel">Отзывы</a></li>
         <li><a href="{{route('guarantee-page')}}" class="nav-link px-2 text-white nav_panel">Гарантии</a></li>
@@ -17,8 +17,16 @@
     </form>
 
     <div class="text-end">
-        <a href="{{route('login-page')}}" class="btn btn-success">Войти</a>
+        @auth
+            <form method="POST" action="{{ route('logout') }}">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-success">Выйти</button>
+            </form>
+        @else
+            <a href="{{ route('login') }}" class="btn btn-success">Войти</a>
+        @endif
     </div>
+
 </div>
 </div>
 </header>

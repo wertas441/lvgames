@@ -1,7 +1,7 @@
 <footer class="mt-auto py-3">
     <ul class="nav justify-content-center pb-3 mb-3">
         <li class="nav-item">
-            <a href="{{route('welcome-page')}}" class="text-light px-2 ">Главная</a>
+            <a href="{{route('welcome')}}" class="text-light px-2 ">Главная</a>
         </li>
         <li class="nav-item">
             <a href="{{route('catalog-page')}}" class="text-light px-2 ">Каталог</a>

@@ -16,7 +16,7 @@
                         </ul>
                     </div>
                 @endif
-                <form method="POST" action="">
+                <form method="POST" action="{{route('register')}}">
                     {{ csrf_field() }}
                     <div class="mb-3">
                         <label for="name" class="form-label text-white">Введите имя</label>
@@ -37,7 +37,7 @@
                     <button type="submit" class="btn btn-success w-100">Зарегистрироваться</button>
                 </form>
                 <div class="mt-2 text-center">
-                    <a href="{{ route('login-page') }} " class="btn btn-success w-100">Уже заригистрированны?</a>
+                    <a href="{{ route('login') }} " class="btn btn-success w-100">Уже заригистрированны?</a>
                 </div>
             </div>
         </div>

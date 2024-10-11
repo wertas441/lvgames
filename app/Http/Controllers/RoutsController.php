@@ -11,13 +11,13 @@ class RoutsController extends Controller
         return view('welcome');
     }
 
-    public function registerP(){
-        return view('register');
-    }
+    //public function registerP(){
+      //  return view('register');
+    //}
 
-    public function loginP(){
-        return view('login');
-    }
+    ///public function loginP(){
+       // return view('login');
+   /// }
 
     public function catalog(){
         return view('catalog');
