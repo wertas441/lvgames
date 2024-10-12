@@ -11,25 +11,24 @@ class RoutsController extends Controller
         return view('welcome');
     }
 
-    //public function registerP(){
-      //  return view('register');
-    //}
-
-    ///public function loginP(){
-       // return view('login');
-   /// }
-
-    public function catalog(){
+    public function catalog()
+    {
         return view('catalog');
     }
 
-    public function guarantee(){
+    public function guarantee()
+    {
         return view('guarantee');
     }
 
-    public function reviews(){
+    public function reviews()
+    {
         return view('reviews');
     }
 
+    public function profilePage()
+    {
+        return view('profile');
+    }
 
 }

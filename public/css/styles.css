@@ -78,7 +78,63 @@ header{
     border: none;
 }
 
-.login_back{
-    background-image: url("images/f1b6829d-d5f9-4fcb-a67b-d854ec6706ac.jpg");
+.dropdown-menu{
+    background-color: #000000;
 }
 
+.dropdown-item{
+    color: #fff;
+}
+
+/* Изменение фона и цвета текста при наведении на пункт меню */
+.dropdown-item:hover {
+    background-color: #157347; /* Зеленый цвет фона при наведении */
+    color: #fff; /* Белый цвет текста */
+}
+
+
+/* Можно добавить эффект плавного перехода при наведении */
+.dropdown-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card-cover {
+    height: 350px; /* Фиксированная высота карточек */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px; /* Для плавных углов */
+}
+
+.equal-height {
+    display: flex;
+    flex-direction: column;
+}
+
+.equal-height > .col {
+    display: flex;
+    flex: 1; /* Каждая колонка занимает равное пространство */
+}
+
+.backOfLogin {
+    position: relative; /* Устанавливаем относительное позиционирование для родительского элемента */
+    height: 100vh; /* Убедитесь, что у вас есть высота для фона */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.backOfLogin::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный слой для затемнения */
+    z-index: 0; /* На заднем плане */
+}
+
+.card {
+    position: relative; /* Устанавливаем относительное позиционирование для карточки */
+    z-index: 1; /* Поверх затемнения */
+}

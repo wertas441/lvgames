@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appwhithout')
 
 @section('title', 'Регистрация')
 
