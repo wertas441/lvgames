@@ -3,7 +3,8 @@
 @section('title', 'Регистрация')
 
 @section('content')
-    <div class="d-flex justify-content-center align-items-center vh-100 mainContent  ">
+    <div class="d-flex justify-content-center align-items-center vh-100 backOfLogin" style="
+    background-image: url('{{ asset('images/backofgames4.jpg') }}');">
         <div class="card shadow-sm w-100" style="max-width: 400px;">
             <div class="card-body content rounded-1" style="height: 515px">
                 <h2 class="card-title text-center text-white">Регистрация</h2>
