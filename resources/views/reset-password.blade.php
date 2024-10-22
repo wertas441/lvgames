@@ -8,9 +8,17 @@
             <p class="text-center text-white fs-5">
                 Введите новые данные
             </p>
+            @if($errors->any())
+                <div class="alert alert-danger">
+                    <ul class="mb-0">
+                        @foreach ($errors->all() as $err)
+                            <li>{{ $err }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="{{ route('password.store') }}" method="post" class="w-100">
-                {{ csrf_field() }}
-
+                @csrf
                 <div class="mb-3">
                     <label for="email" class="form-label text-white">Введите email</label>
                     <input

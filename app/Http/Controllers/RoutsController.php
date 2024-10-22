@@ -31,4 +31,9 @@ class RoutsController extends Controller
         return view('profile');
     }
 
+    public function test()
+    {
+        return view('test-profile');
+    }
+
 }

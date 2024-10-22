@@ -31,7 +31,7 @@
                         <!-- Выпадающее меню -->
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item rounded-2" href="{{route('profile-page')}}">Профиль</a></li>
-                            <li><a class="dropdown-item rounded-2" href="#">Another action</a></li>
+                            <li><a class="dropdown-item rounded-2" href="{{route('test-profile-page')}}">test</a></li>
                             <li><a class="dropdown-item rounded-2" href="#">Something else here</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><form method="POST" action="{{ route('logout') }}">
