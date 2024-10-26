@@ -36,4 +36,8 @@ class RoutsController extends Controller
         return view('test-profile');
     }
 
+    public function reviewPage()
+    {
+        return view('make-review');
+    }
 }

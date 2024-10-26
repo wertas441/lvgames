@@ -10,6 +10,6 @@ Route::get('/guarantee', [RoutsController::class, 'guarantee'])->name('guarantee
 Route::get('/reviews', [RoutsController::class, 'reviews'])->name('reviews-page');
 Route::get('/', [RoutsController::class, 'welcome'])->name('welcome');
 Route::get('/test-profile', [RoutsController::class, 'test'])->name('test-profile-page');
-
+Route::get('/make-review', [RoutsController::class, 'reviewPage'])->name('make-rev-page');
 
 require __DIR__.'/auth.php';
