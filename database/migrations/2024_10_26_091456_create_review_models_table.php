@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('review_models', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('review');
+            $table->integer('stars');
             $table->timestamps();
         });
     }

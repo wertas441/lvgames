@@ -41,7 +41,7 @@
 
             <div class="d-flex justify-content-center mt-4">
                 <a href="{{ route('profile.edit') }}" class="btn btn-success w-100 me-2">Редактировать профиль</a>
-                <a href="#" class="btn btn-danger w-100">Сменить пароль</a>
+                <a href="{{route('password.request')}}" class="btn btn-danger w-100">Сменить пароль</a>
             </div>
         </div>
     </div>

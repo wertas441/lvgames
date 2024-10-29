@@ -147,3 +147,11 @@ header{
 .rev_block{
     margin-top: 60px;
 }
+
+
+.review-hr{
+    border: none; /* Убираем стандартное оформление */
+    height: 2px; /* Задаем высоту линии */
+    background-color: white; /* Задаем белый цвет */
+    margin: 15px 0; /* Устанавливаем отступы сверху и снизу, по желанию */
+}

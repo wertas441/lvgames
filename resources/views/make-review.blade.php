@@ -20,7 +20,7 @@
                     {{ csrf_field() }}
                     <div class="mb-3">
                         <label for="name" class="form-label text-white">Имя аккаунта</label>
-                        <input type="text" id="name" name="name" class="form-control" value="">
+                        <input type="text" id="name" name="name" class="form-control" value="{{ $user->name }}" readonly>
                     </div>
                     <div class="mb-3">
                         <label for="review" class="form-label text-white">Отзыв</label>
