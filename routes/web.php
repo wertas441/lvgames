@@ -17,7 +17,8 @@ Route::get('/make-review', [ReviewController::class, 'create'])->name('make-revi
 Route::post('/make-review', [ReviewController::class, 'store']);
 
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog-page');
-
+Route::get('/make-games', [CatalogController::class, 'create'])->name('make-games');
+Route::post('/make-games', [CatalogController::class, 'store']);
 
 
 require __DIR__.'/auth.php';

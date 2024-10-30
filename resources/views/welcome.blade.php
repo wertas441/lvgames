@@ -57,7 +57,7 @@
                     style="background-image: url('{{ asset('images/epicgameslogo.jpg') }}');">
                     <div class="d-flex flex-column h-100 p-3 pb-2 text-white text-shadow-1">
                         <div class="mt-auto d-flex justify-content-end align-items-center">
-                            <small>Epic Games Store</small>
+                            <small>Epic Games Launcher</small>
                         </div>
                     </div>
                 </div>
