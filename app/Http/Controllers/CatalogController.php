@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Games;
+use Faker\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -57,5 +58,31 @@ class CatalogController extends Controller
 
         return redirect() -> route('catalog-page');
     }
+
+
+    public function show($id): Factory | View
+    {
+        $game = Games::find($id);
+        return view('show', compact('game'));
+    }
+
+    public function edit($id): View
+    {
+        $game = Games::find($id);
+        return view('edit-game', compact('game'));
+    }
+
+    public function destroy($id): RedirectResponse
+    {
+        $destroy = Games::find($id);
+
+        if($destroy){
+            $destroy->delete();
+            return redirect() -> route('catalog-page');
+        } else{
+            return redirect()->route('catalog-page') -> with('errors','Такой товар не найден');
+        }
+    }
+
 
 }

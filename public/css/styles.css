@@ -155,3 +155,10 @@ header{
     background-color: white; /* Задаем белый цвет */
     margin: 15px 0; /* Устанавливаем отступы сверху и снизу, по желанию */
 }
+
+.separator {
+    width: 1px;
+    height: 24px;
+    background-color: white;
+    margin: 0 8px;
+}
