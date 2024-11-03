@@ -16,25 +16,24 @@
         <hr class="review-hr text-light">
 
         <!-- Фильтр -->
-        <div class="row mb-4">
-            <div class="col-md-3" style="background-color: #202127; height: 440px">
-                <h5 class="text-white">Фильтры</h5>
-                <form method="GET" action="">
-                    <div class="mb-3">
+        <div class="row mb-4 ">
+            <div class="col-md-3 rounded-1" style="background-color: #202127; height: 590px">
+                <form method="GET" action="{{route('catalog-page')}}">
+                    <div class="mb-3 mt-3">
                         <label class="form-label text-white">Цена (₽)</label>
                         <div class="d-flex">
-                            <input type="number" class="form-control me-2" name="min_price" placeholder="Мин" min="0">
-                            <input type="number" class="form-control" name="max_price" placeholder="Макс" min="0">
+                            <input type="number" class="form-control me-2" name="min_price" placeholder="Мин" min="0" value="{{ request()->input('min_price') }}">
+                            <input type="number" class="form-control" name="max_price" placeholder="Макс" min="0" value="{{ request()->input('max_price') }}">
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label for="platform" class="form-label text-white">Платформа</label>
-                        <select id="platform" name="platform" class="form-select">
-                            <option value="">Все платформы</option>
-                            <option value="PC">PC</option>
-                            <option value="PlayStation">PlayStation</option>
-                            <option value="Xbox">Xbox</option>
+                        <label for="system" class="form-label text-white">Система</label>
+                        <select id="system" name="system[]" class="form-select" multiple>
+                            <option value="">Все системы</option>
+                            <option value="Windows" {{ in_array('Windows', request()->input('system', [])) ? 'selected' : '' }}>Windows</option>
+                            <option value="Linux" {{ in_array('Linux', request()->input('system', [])) ? 'selected' : '' }}>Linux</option>
+                            <option value="Mac" {{ in_array('Mac', request()->input('system', [])) ? 'selected' : '' }}>Mac</option>
                         </select>
                     </div>
 
@@ -42,22 +41,31 @@
                         <label for="activation" class="form-label text-white">Способ активации</label>
                         <select id="activation" name="activation" class="form-select">
                             <option value="">Все способы</option>
-                            <option value="Steam">Steam</option>
-                            <option value="Epic Games">Epic Games</option>
-                            <option value="GOG">GOG</option>
+                            <option value="Steam" {{ request()->input('activation') == 'Steam' ? 'selected' : '' }}>Steam</option>
+                            <option value="EA Play" {{ request()->input('activation') == 'EA Play' ? 'selected' : '' }}>EA Play</option>
+                            <option value="Epic Games Launcher" {{ request()->input('activation') == 'Epic Games Launcher' ? 'selected' : '' }}>Epic Games Launcher</option>
+                            <option value="Xbox" {{ request()->input('activation') == 'Xbox' ? 'selected' : '' }}>Xbox</option>
                         </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="genre" class="form-label text-white">Жанр</label>
-                        <select id="genre" name="genre" class="form-select">
-                            <option value="">Все жанры</option>
-                            <option value="RPG">RPG</option>
-                            <option value="Shooter">Шутер</option>
-                            <option value="Adventure">Приключение</option>
+                        <select id="genre" name="genre[]" class="form-select" multiple>
+                            <option value="Инди" {{ in_array('Инди', request()->input('genre', [])) ? 'selected' : '' }}>Инди</option>
+                            <option value="Экшен" {{ in_array('Экшен', request()->input('genre', [])) ? 'selected' : '' }}>Экшен</option>
+                            <option value="Шутер" {{ in_array('Шутер', request()->input('genre', [])) ? 'selected' : '' }}>Шутер</option>
+                            <option value="Приключение" {{ in_array('Приключение', request()->input('genre', [])) ? 'selected' : '' }}>Приключение</option>
+                            <option value="Стратегия" {{ in_array('Стратегия', request()->input('genre', [])) ? 'selected' : '' }}>Стратегия</option>
+                            <option value="Симулятор" {{ in_array('Симулятор', request()->input('genre', [])) ? 'selected' : '' }}>Симулятор</option>
+                            <option value="Ролевая игра" {{ in_array('Ролевая игра', request()->input('genre', [])) ? 'selected' : '' }}>Ролевая игра</option>
+                            <option value="Аниме" {{ in_array('Аниме', request()->input('genre', [])) ? 'selected' : '' }}>Аниме</option>
+                            <option value="Гонка" {{ in_array('Гонка', request()->input('genre', [])) ? 'selected' : '' }}>Гонка</option>
+                            <option value="ММО" {{ in_array('ММО', request()->input('genre', [])) ? 'selected' : '' }}>ММО</option>
+                            <option value="Файтинг" {{ in_array('Файтинг', request()->input('genre', [])) ? 'selected' : '' }}>Файтинг</option>
+                            <option value="Спортивная игра" {{ in_array('Спортивная игра', request()->input('genre', [])) ? 'selected' : '' }}>Спортивная игра</option>
                         </select>
                     </div>
-
+                    <a href="{{route('catalog-page')}}" class="btn btn-success w-100 mb-2">Сбросить фильтр</a>
                     <button type="submit" class="btn btn-success w-100">Применить фильтр</button>
                 </form>
             </div>

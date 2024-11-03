@@ -1,25 +1,23 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+@extends('layouts.appwhithout')
+
+@section('title', 'Сброс пароля')
+
+@section('content')
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="mainContent p-4 rounded-1" style="width: 630px; background-color: #343a40;">
+            <p class="text-center text-white">
+                Сообщите нам свой адрес электронной почты, и мы вышлем вам ссылку для сброса пароля,
+                которая позволит вам выбрать новый.
+            </p>
+            <form action="{{ route('password.email') }}" method="post" class="d-flex flex-column align-items-center gap-3">
+                {{ csrf_field() }}
+                <input type="email" name="email" id="email" class="form-control" placeholder="Введите email" required>
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                    <a href="{{ route('welcome') }}" class="btn btn-secondary">На главную</a>
+                </div>
+            </form>
+        </div>
     </div>
+@endsection
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>

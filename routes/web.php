@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoutsController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\TicketController;
 
 /// OTHER
 Route::get('/guarantee', [RoutsController::class, 'guarantee'])->name('guarantee-page');
@@ -26,6 +27,14 @@ Route::get('/game-info/{id}', [CatalogController::class, 'show']) -> name('game-
 Route::delete('/game-delete/{id}', [CatalogController::class, 'destroy'])->name('game-destroy');
 Route::get('/game-edit-page/{id}', [CatalogController::class, 'edit']) -> name('game-edit');
 Route::put('/game-edit/{id}', [CatalogController::class, 'update'])->name('game-update');
+
+
+
+/// TICKET
+Route::get('/support-index', [TicketController::class, 'index'])->name('support-index');
+Route::get('/support-call', [TicketController::class, 'create'])->name('support-create');
+Route::post('/support-call', [TicketController::class, 'store']);
+Route::get('/ticket-show/{id}', [TicketController::class, 'show'])->name('ticket-show');
 
 
 require __DIR__.'/auth.php';

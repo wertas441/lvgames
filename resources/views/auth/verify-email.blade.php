@@ -1,31 +1,21 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
+@extends('layouts.appwhithout')
 
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-        </div>
-    @endif
+@section('title', 'Подтверждение почты')
 
-    <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
-
-            <div>
-                <x-primary-button>
-                    {{ __('Resend Verification Email') }}
-                </x-primary-button>
+@section('content')
+    <div class="d-flex align-items-center justify-content-center min-vh-100 bg-dark">
+        <div class="container mainContent text-center p-4 rounded-1" style="width: 630px; background-color: #343a40;">
+            <p class="text-white mb-4">Спасибо за регистрацию, на вашу почту должно прийти письмо от нашего магазина.
+                Если письмо не пришло, пожалуйста нажмите на кнопку ниже!</p>
+            <div class="d-flex justify-content-center gap-3">
+                <form action="{{ route('verification.send') }}" method="post" class="m-0">
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-success">Отправить еще раз</button>
+                </form>
+                <a href="{{ route('welcome') }}" class="btn btn-success">На главную</a>
             </div>
-        </form>
-
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
-
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
-            </button>
-        </form>
+        </div>
     </div>
-</x-guest-layout>
+
+@endsection
+

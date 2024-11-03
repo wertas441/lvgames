@@ -16,8 +16,8 @@
             </ul>
 
             <!-- Поисковая форма -->
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control form-control-dark text-bg-dark inputPanel" placeholder="Search..." aria-label="Search">
+            <form action="" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" method="get">
+                <input name="name" id="name" type="search" class="form-control form-control-dark text-bg-dark inputPanel" placeholder="Search..." aria-label="Search">
             </form>
 
             <!-- Блок авторизации -->
@@ -31,7 +31,7 @@
                         <!-- Выпадающее меню -->
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <li><a class="dropdown-item rounded-2" href="{{route('profile-page')}}">Профиль</a></li>
-                            <li><a class="dropdown-item rounded-2" href="{{route('test-profile-page')}}">test</a></li>
+                            <li><a class="dropdown-item rounded-2" href="{{route('support-index')}}">Поддержка</a></li>
                             <li><a class="dropdown-item rounded-2" href="#">Something else here</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><form method="POST" action="{{ route('logout') }}">

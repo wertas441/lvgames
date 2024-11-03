@@ -10,12 +10,61 @@ use Illuminate\View\View;
 
 class CatalogController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
-        $allGames = Games::all();
+        $minPrice = $request->input('min_price');
+        $maxPrice = $request->input('max_price');
+        $selectedPlatforms = $request->input('system', []); // Массив платформ
+        $selectedActivations = $request->input('activation');
+        $selectedGenres = $request->input('genre', []); // Массив жанров
+
+        $query = Games::query();
+
+        if ($minPrice !== null) {
+            $query->where('price', '>=', $minPrice);
+        }
+        if ($maxPrice !== null) {
+            $query->where('price', '<=', $maxPrice);
+        }
+
+        // Фильтр по платформам
+        if (!empty($selectedPlatforms)) {
+            $query->where(function ($query) use ($selectedPlatforms) {
+                foreach ($selectedPlatforms as $platform) {
+                    $query->orWhereJsonContains('system', $platform);
+                }
+            });
+        }
+
+        // Фильтр по активации
+        if (!empty($selectedActivations)) {
+            $query->where('activation', $selectedActivations);
+        }
+
+        // Фильтр по жанрам
+        if (!empty($selectedGenres)) {
+            $query->where(function ($query) use ($selectedGenres) {
+                foreach ($selectedGenres as $genre) {
+                    $query->orWhereJsonContains('genre', $genre);
+                }
+            });
+        }
+
+        // Получение результатов запроса
+        $allGames = $query->paginate(10); // Пагинация для удобства
+
+
         $user = auth()->user();
-        return view('catalog', compact('user'), compact('allGames'));
+        return view('catalog', compact('user', 'allGames' ) );
     }
+
+   /* public function search(Request $request): View
+    {
+        $query = Games::query();
+        $query->where('name', '=', $request->input('name'));
+
+        return view('catalog', compact('query'));
+    }*/
 
     public function create(): View
     {
