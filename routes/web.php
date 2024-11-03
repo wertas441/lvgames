@@ -24,7 +24,8 @@ Route::get('/make-games', [CatalogController::class, 'create'])->name('make-game
 Route::post('/make-games', [CatalogController::class, 'store']);
 Route::get('/game-info/{id}', [CatalogController::class, 'show']) -> name('game-page');
 Route::delete('/game-delete/{id}', [CatalogController::class, 'destroy'])->name('game-destroy');
-Route::get('/sneaker-edit-page/{id}', [CatalogController::class, 'edit']) -> name('edit-page');
+Route::get('/game-edit-page/{id}', [CatalogController::class, 'edit']) -> name('game-edit');
+Route::put('/game-edit/{id}', [CatalogController::class, 'update'])->name('game-update');
 
 
 require __DIR__.'/auth.php';

@@ -131,7 +131,7 @@
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-outline-light ">Удалить товар</button>
                                                 </form>
-                                                <form action="{{ route('edit-page', $game -> id) }}" method="get" class="">
+                                                <form action="{{ route('game-edit', [$game -> id]) }}" method="get" class="">
                                                     @csrf
                                                     <button type="submit" class="btn btn-outline-light  ">Изменить товар</button>
                                                 </form>

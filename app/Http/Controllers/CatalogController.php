@@ -66,11 +66,6 @@ class CatalogController extends Controller
         return view('show', compact('game'));
     }
 
-    public function edit($id): View
-    {
-        $game = Games::find($id);
-        return view('edit-game', compact('game'));
-    }
 
     public function destroy($id): RedirectResponse
     {
@@ -82,6 +77,33 @@ class CatalogController extends Controller
         } else{
             return redirect()->route('catalog-page') -> with('errors','Такой товар не найден');
         }
+    }
+
+    public function edit($id): View
+    {
+        $game = Games::find($id);
+        return view('edit-game', compact('game'));
+    }
+    public function update(Request $request, $id): RedirectResponse
+    {
+        $updateValidate = $request->validate([
+            'name' => 'required',
+            'genre' => 'required',
+            'date' => 'required',
+            'about' => 'required',
+            'price' => 'required',
+            'developer' => 'required',
+            'url' => 'required',
+            'publisher' => 'required',
+            'activation' => 'required',
+            'system' => 'required',
+            'typeof' => 'required',
+        ]);
+
+        $updateGame = Games::find($id);
+        $updateGame->update($updateValidate);
+        return redirect() -> route('catalog-page');
+
     }
 
 
